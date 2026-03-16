@@ -329,7 +329,12 @@ function generateWhatsAppLink(nama, nomorWA, kitNumber, serialNumber, paket, jat
   };
 
   var message = messages[type] || messages['H-3'];
-  return `https://web.whatsapp.com/send?phone=${nomorWA}&text=${encodeURIComponent(message)}`;
+  var starlinkPolicyNote =
+    `\n\n─────────────────────────\n` +
+    `⚠️ *INFORMASI KEBIJAKAN TERBARU STARLINK*\n\n` +
+    `Perlu kami sampaikan bahwa berdasarkan kebijakan terbaru Starlink, apabila layanan dinonaktifkan atau tidak diperpanjang, pengaktifan kembali di beberapa wilayah berpotensi dikenakan *Demand Surcharge* sekitar *Rp 18.000.000*.\n\n` +
+    `Untuk menghindari biaya tambahan tersebut, kami sangat menyarankan agar layanan Starlink Anda *tidak sampai nonaktif*. Mohon segera konfirmasi perpanjangan sebelum masa aktif berakhir — jangan biarkan layanan terputus.`;
+  return `https://web.whatsapp.com/send?phone=${nomorWA}&text=${encodeURIComponent(message + starlinkPolicyNote)}`;
 }
 
 /**
